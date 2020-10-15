@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderItem from './HeaderItem';
 
 const Header = () => {
   return (
@@ -6,22 +7,10 @@ const Header = () => {
     <div class="container">
       <a class="navbar-brand" href="index.html">conduit</a>
       <ul class="nav navbar-nav pull-xs-right">
-        <li class="nav-item">
-          <a class="nav-link active" href="">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">
-            <i class="ion-compose"></i>&nbsp;New Post
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">
-            <i class="ion-gear-a"></i>&nbsp;Settings
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Sign up</a>
-        </li>
+        <HeaderItem name="Home" />
+        <HeaderItem name="New Post" icon="ion-compose" />
+        <HeaderItem name="Settings" icon="ion-gear-a"/>
+        <HeaderItem name="Sign up" />
       </ul>
     </div>
   </nav>
