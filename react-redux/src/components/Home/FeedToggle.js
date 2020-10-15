@@ -1,15 +1,12 @@
 import React from 'react';
+import FeedToggleItem from './FeedToggleItem';
 
 const FeedToggle = () => {
   return (
     <div class="feed-toggle">
       <ul class="nav nav-pills outline-active">
-          <li class="nav-item">
-              <a class="nav-link disabled" href="">Your Feed</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link active" href="">Global Feed</a>
-          </li>
+        <FeedToggleItem name="Your Feed" isActive={false} />
+        <FeedToggleItem name="Your Feed" isActive={true} />
       </ul>
     </div>
   );
