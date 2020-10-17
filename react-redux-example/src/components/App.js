@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from "react-redux";
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './components/Home/index';
-import { store } from './store';
+import Header from './Header';
+import Footer from './Footer';
+import Home from './Home/index';
+import { store } from '../store';
 
 const App = () => {
   return (
