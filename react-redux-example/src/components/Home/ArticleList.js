@@ -1,23 +1,41 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Article from './Article';
 import FeedToggle from './FeedToggle';
+import { GET_ARTICLES } from '../../constants/actionTypes';
+import agent from '../../agent';
 
-const ArticleList = () => {
+const mapStateToProps = state => {
+  return {
+    articles: state.articleList.articles
+	}
+};
+
+const mapDispatchToProps = dispatch => ({
+  getArticles: () =>
+    dispatch({ type: GET_ARTICLES, payload: agent.Articles.all()}),
+});
+
+const ArticleList = (props) => {
+  if (!props.articles) {
+    return (
+      <div class="col-md-9">
+        <FeedToggle />
+        <div onClick={props.getArticles}>Loading</div>
+      </div>
+    )
+  }
+
   return (
     <div class="col-md-9">
       <FeedToggle />
-      <Article 
-        info={{ image: "http://i.imgur.com/Qr71crq.jpg", author: "Eric Simons", date: "January 20th"}}
-        heart={29}
-        preview={{ header: "How to build webapps that scale", description: "This is the description for the post."}}
-        />
-      <Article 
-        info={{ image: "http://i.imgur.com/N4VcUeJ.jpg", author: "Albert Pai", date: "January 20th"}}
-        heart={32}
-        preview={{ header: "The song you won't ever stop singing. No matter how hard you try.", description: "This is the description for the post."}}
-        />
+      {
+        props.articles.map(article => {
+          return <Article article={article} />
+        })
+      }
     </div>
   );
 }
 
-export default ArticleList;
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);

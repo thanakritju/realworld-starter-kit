@@ -6,7 +6,7 @@ const FeedToggle = () => {
     <div class="feed-toggle">
       <ul class="nav nav-pills outline-active">
         <FeedToggleItem name="Your Feed" isActive={false} />
-        <FeedToggleItem name="Your Feed" isActive={true} />
+        <FeedToggleItem name="Global Feed" isActive={true} />
       </ul>
     </div>
   );
